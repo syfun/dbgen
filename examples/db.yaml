@@ -1,0 +1,37 @@
+url: 'sqlite:///:memory:'
+
+tables:
+  - name: user
+    columns:
+      - name: id
+        type: int
+        primary_key: true
+      - name: first_name
+        type: string
+      - name: last_name
+        type: string
+      - name: age
+        type: int
+      - name: phone
+        type: string
+        nullable: true
+    constraints:
+      - type: unique
+        columns: [first_name, last_name]
+  - name: post
+    columns:
+      - name: id
+        type: int
+        primary_key: true
+      - name: title
+        type: string
+      - name: content
+        type: string
+        nullable: true
+      - name: user_id
+        type: int
+        foreign:
+          to: user.id
+          on_update: CASCADE
+          on_delete: CASCADE
+
