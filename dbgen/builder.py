@@ -59,9 +59,6 @@ class TableBuilder(BaseModel):
     columns: List[ColumnBuilder]
     constraints: List[ConstraintBuilder] = None
 
-    # class Config:
-    #     arbitrary_types_allowed = True
-
     def build(self, metadata: sqlalchemy.MetaData) -> sqlalchemy.Table:
         args = [column.build() for column in self.columns]
         if self.constraints:

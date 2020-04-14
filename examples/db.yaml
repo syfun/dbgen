@@ -1,4 +1,4 @@
-url: 'sqlite:///:memory:'
+url: "sqlite:///Users/sunyu/workspace/github.com/syfun/test.db"
 
 tables:
   - name: user
@@ -34,4 +34,3 @@ tables:
           to: user.id
           on_update: CASCADE
           on_delete: CASCADE
-
